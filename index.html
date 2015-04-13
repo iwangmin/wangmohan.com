@@ -23,28 +23,7 @@ a:hover{text-decoration:none;}
 #wrapper p em{font-style:italic;font-weight:bold;}
 #wrapper p span{color:#000000;display:none;}
 #wrapper img{display:block;margin:0 auto;width:100%;height:100%;max-width:640px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
-
-.footer{width:100%;position:absolute;bottom:0;font-family:"微软雅黑"}
-.footer-inner{margin:0 auto;text-align:center}
-.footer .nav{width:100%;height:44px;line-height:44px;background:url(images/navbg.png) repeat-x}
-.footer .nav li{float:left;width:33.3333333%;background:url(images/line.png) no-repeat center left;position:relative;}
-.footer .nav li:first-child{background:none}
-.footer .nav li span{display:inline-block;background:url(images/icon.png) no-repeat 0 0;width:20px;height:20px;margin-right:3px;margin-bottom:-5px}
-.footer .nav .subnav{position:absolute;bottom:44px;left:50%;width:92px;margin-left:-46px;padding:5px 2px;background:#f1f1f1;border:1px solid #e1e1e1;display:none}
-.footer .nav .subnav dt{height:33px;line-height:33px;padding:6px 0;border-top:1px solid #e1e1e1}
-.footer .nav .subnav dt:first-child{border-top:none}
 </style>
-<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript">
-	function change() {
-		sn = document.getElementById("subnav");
-		if (sn.style.display == 'none') {
-			sn.style.display = 'block';
-		} else {
-			sn.style.display = 'none';
-		}
-	}
-</script>
 </head>
 <body>
 <div id="wrapper">
@@ -89,20 +68,14 @@ a:hover{text-decoration:none;}
 		showsectime();
 		</script>
 	</p>
-</div>
 
-<div class="footer">
-	<div class="footer-inner">
-		<ul class="nav">
-			<li><span></span><a href="/">宝贝首页</a></li>
-			<li><span></span><a href="#" onclick="change();">相册专辑</a>
-				<dl class="subnav" id="subnav">
-					<dt><a href="">百天纪念</a></dt>
-				</dl>
-			</li>
-			<li><span></span><a href="#">视频专辑</a></li>
-		</ul>
-	</div>
+	<p>我的 <em>相册专辑</em> 和 <em>视频专辑</em> 正在紧张开拍中..., 请大家期待一下哦~</p>
+
+	<p>好了, 先上一张靓照吧</p>
+
+	<p><img src="images/1.jpg" /></p>
+
+	<p>大家看到我的表情没, 每天就要像我开开心心哦, 哈哈~ 当然如果经常来看看我, 你应该会更开心哇~</p>
 </div>
 </body>
 </html>
