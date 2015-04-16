@@ -42,6 +42,17 @@ article.webapp-view{opacity: 0;}
 <script>
 var G_MASKLAYER_OPTIONS = [];
 </script>
+<script type="text/template" name="wx">
+
+imgUrl=http://m.zuikuapp.com/newadmin/res/img/nopic150x150.jpg;
+lineLink=http://m.zuikuapp.com/a/63738_146598;
+descContent=女儿100天专辑;
+shareTitle=渲渲100天专辑;
+imgWidth=200;
+imgHeight=200;
+appid=;
+shareClick=http://click.zuiku.com/share.jsp?appId=63738
+</script>
 </head>
 <body>
 <img src="http://m.zuikuapp.com/newadmin/res/img/nopic150x150.jpg" width="200" height="200" class="f-hide"/>
@@ -195,8 +206,48 @@ var G_MASKLAYER_OPTIONS = [];
 <img src="about:blank" style="border: 0px none;  width:100%; height:100%; -webkit-transform:rotate(0deg); transform:rotate(0deg); opacity:1.0;" data-lazysrc="src!http://file1.zuiku.com/2015/04/15/22/22912_3ee4dbb3e036d0a08a4bb91b72ff55bf.png">
 </div>
 <div id="widget_2491767" data-appid="63738" data-moduleid="2491767" data-widget="animation::flipInX:!1.0s ease 0.5s 1 forwards" class="widget hidden   btn-block btn   f-tc sp-heart  " style=" background-color:rgba(239,123,0,0.8);;z-index:1;  left:64px; top:624px; border: 0px none;  width:512PX; ">
-<a href="http://wangmohan.com" class="js-simple-button sp-heart" style="color:#FFFFFF;font-size:24px;" >返回我的主页</a>
+<a href="#" class="js-simple-button sp-heart" style="color:#FFFFFF;font-size:24px;" data-action="Action://popbox#visible~transition::translate:0%,0%!.2s ease-out;translateZ:0!" data-popbox="item_comment_div_2491767">给我送上祝福吧</a>
 </div>
+<div class="popbox f-center f-bottom0" data-rs="/show/values/list?itemCommentId=39432" id="item_comment_div_2491767" name="item_comment_div_2491767" style="height:90%; bottom:0%;-webkit-transform:translate(0,100%) translateZ(0);transform:translate(0, 100%) translateZ(0);">
+<div class="ppb-title" style=" background-color:rgba(239,123,0,0.8);">
+<em class="icon-edit sprite01"></em>
+<h1 class="f-tc f-size18">送上祝福</h1>
+<em class="icon-close sprite01" data-action="Action://popbox#hidden~transition::translate:0%,100%!.2s ease-out;translateZ:0!" data-popbox="item_comment_div_2491767"></em>
+</div>
+<div class="subview" style="position:relative" data-subview="scroll#y">
+<div class="subscroller">
+<div class="ppb-cont">
+<form action="/show/values/submit" method="post" name="item_form_submit_2491767" id="item_form_submit_2491767">
+<input type="hidden" value='63738' name='appId'/>
+<input type="hidden" value='2491767' name='screenItemId'/>
+<input type="hidden" value='39432' name='itemCommentId'/>
+<ul class="ufbox">
+<li><input class="ufinput" id="itemCommentName" name="itemCommentName" type="text" data-tips="请输入称呼" placeholder="点击输入称呼"></li>
+<li><textarea class="ufinput" id="itemCommentInfo" name="itemCommentInfo" rows="3" data-tips="请输入祝福语" placeholder="点击输入祝福语"></textarea></li>
+</ul>
+<div class="btn-block f-radius btn-blue " style=" background-color:rgba(239,123,0,0.8);">
+<a data-action="Action://submit#comment" class="f-size20" id="" name="">发送</a>
+</div>
+</form>
+<script type="text/template" id="item_comment_div_2491767_tpl">
+                    <dt class="f-size16">最新留言 <em class="f-size14">（共<b>#{count}</b>条）</em></dt>#{list}
+
+                  </script>
+<script type="text/template" id="item_comment_div_2491767_item_tpl">
+					 <dd class="f-size14"><p><em>#{itemCommentName}</em><code>#{itemFormValueAddTime}</code></p><p>#{itemCommentInfo}</p></dd>
+	
+                  </script>
+<dl class="tlistbox" id="item_comment_div_2491767_rs">
+</dl>
+<div style="height:20px;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="copyright">
+<div class="cp-l"></div>
+<div class="cp-r">Powered by <a href="http://www.zuiku.com/wap/index/list" title=""><img src="http://static.zuiku.com/res/img/lib/cplogo.44b4d91f71a93de0fa7455eb3702cec6c4b53424.png"> zuiku.com</a></div>
 </div>
 </section>
 <div class="icon-audio f-top0 hide" data-type="audio">
@@ -207,6 +258,17 @@ var G_MASKLAYER_OPTIONS = [];
 <i class="ani-up1"></i>
 </div>
 </article>
+<header class="webapp-header" id="header">zuiku.com Web App</header>
+<footer class="webapp-footer" id="footer">&copy;zuiku.com 2015</footer>
+<div id="submit_tips" data-offset="150"></div>
+<script type="text/templates" id="tpl_kb_result">
+  <div class="kas-endbox">
+     <h1>恭喜您！</h1>
+     <p>共 <b>#{total}</b> 题，您答对了 <b>#{right}</b> 道题，</p>
+     <p>正确率为 <b>#{rate}%</b></p>
+     <p><a href="#" data-action="Action://againAnswer">再来一次</a> <a href="#" data-action="Action://overAnswer">结束答题</a></p>
+  </div>
+</script>
 <div id="kb_result" class="widget share-mask hide" style="z-index:999999;">
 </div>
 <script>
@@ -291,6 +353,106 @@ loader.load();
 })();
 </script>
 <script src="http://static.zuiku.com/res/js/lib/se.mix.9db56692e584cbb087cd8897a5d88835ef0e0b80.js"></script>
+<script>
+for(var i = 0; i < G_MASKLAYER_OPTIONS.length; i++){
+	if(G_MASKLAYER_OPTIONS[i].backImage){
+		new Image().src = G_MASKLAYER_OPTIONS[i].backImage;
+	}
+}
+seajs.use(["logic/default/webapp.2225100f0402be2fe313282a187785f170cd1856"], function(app){
+
+  app.app.set("ready", {
+      callback: function(success){
+          this.appReady = true;
+          if(!success){
+              alert("场景应用加载失败");
+          }
+      },
+      context: app.app
+  });
+
+	var layout = app.app.layout;
+	var design = layout.design;
+
+	var timer = app.app.getTimer("default", 2.5, {
+		  callback: function(_timer){
+      if(this.appReady){
+    			if(ImageLoader.complete || ImageLoader.timeout()){
+    				  var loading = $(".webapp-loading");
+
+              if(loading.length > 0){
+                  loading.addClass("hide");
+              }
+
+              _timer.stop();
+              
+              this.view.addClass("page-loaded");
+    			}
+      }
+		  },
+		  context: app.app
+	});
+
+	timer.start();
+
+  	setTimeout(function(){
+      	app.setAudio("http://file1.zuiku.com/2014/12/06/16/8_d15947e1239101e45a3e9c3b11cee2e7.mp3", true);
+      	for(var i = 0; i < G_MASKLAYER_OPTIONS.length; i++){
+			var maskOptions = G_MASKLAYER_OPTIONS[i];
+			var id = "#masklayer_" + maskOptions.key;
+			var stage = document.querySelector(id);
+			if(!stage || !maskOptions.frontImage || !maskOptions.backImage){continue;}
+			var maskLayer = new app.MaskLayer(stage);
+
+      var width = design.width;
+      var height = design.height;
+
+      maskLayer
+           .setBrushSize(55)
+					 .setBlurRadius(0)
+					 .setScratchText({
+    						font: "80px Arial",
+    						textAlign: "center", 
+    						textBaseline: "middle", 
+    						color: "#000", 
+    						x: width / 2, 
+    						y: height * 0.8, 
+    						text:maskOptions.maskText
+					  })
+			    .setReady({
+  						callback: function(id, backImage){
+  							$(id).parent().css("background-image", "url(" + backImage + ")");
+  						},
+  						args: [id, maskOptions.backImage]
+					})
+					.setComplete({
+						callback : function(remain, removed, id){
+							var total = remain + removed;
+
+							//解决Android下渲染问题
+							$(id).width(width - 0.001) //根据实际情况调整
+							.width(width);  //根据实际情况调整
+
+							if(remain / total <= 0.75){
+								this.clean();
+								$(id).remove();
+								$(id).attr("data-lockapp", "0");
+								app.app.setLocked(false);
+							}
+						},
+						context: maskLayer,
+						args: [id]  
+					})
+				  .paintImage("about:blank", maskOptions.frontImage, 
+									0, 0, width, height,
+									0, 0, width, height);
+	    }//end for
+      	app.app.create();
+
+      
+  }, 200);
+});
+</script>
 <script src="http://click.zuiku.com/click.jsp?appId=63738&channel=0"></script>
 <script type="text/javascript" src="http://tajs.qq.com/stats?sId=40639732" charset="UTF-8"></script>
 </body>
