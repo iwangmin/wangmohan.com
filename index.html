@@ -35,44 +35,42 @@ a:hover{text-decoration:none;}
 	</p>
 
 	<p>
-		<span id="sitetime"></span>
-		<script language=javascript>
-		function siteTime(){
-		window.setTimeout("siteTime()", 1000);
-		var seconds = 1000
-		var minutes = seconds * 60
-		var hours = minutes * 60
-		var days = hours * 24
-		var years = days * 365
-
-		var today = new Date()
-		var todayYear = today.getFullYear()
-		var todayMonth = today.getMonth()
-		var todayDate = today.getDate()
-		var todayHour = today.getHours()
-		var todayMinute = today.getMinutes()
-		var todaySecond = today.getSeconds()
-
-		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-		year - 作为date对象的年份，为4位年份值
-		month - 0-11之间的整数，做为date对象的月份
-		day - 1-31之间的整数，做为date对象的天数
-		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-		minutes - 0-59之间的整数，做为date对象的分钟数
-		seconds - 0-59之间的整数，做为date对象的秒数
-		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-		var t1 = Date.UTC(2014,10,25,22,05,00)
-		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
-		var diff = t2-t1
-
-		var diffYears = Math.floor(diff/years)
-		var diffDays = Math.floor((diff/days)-diffYears*365)
-		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
-		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
-		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
-		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒"
+		<a id="showsectime"></a>
+		<script type="text/javascript">
+		function NewDate(str) {
+			var date = new Date(Date.parse(str.replace(/-/g,   "/")));
+			return date;
 		}
-		siteTime()
+		function showsectime() {
+			var birthDay =NewDate("2014-11-25 23:06:00");
+			var today=new Date();
+			var timeold=today.getTime()-birthDay.getTime();
+			//alert("2014-11-25");
+			var sectimeold=timeold/1000
+			var secondsold=Math.floor(sectimeold);
+			var msPerDay=24*60*60*1000;
+
+			var msPerYear=365*24*60*60*1000;
+			var e_Yearsold=timeold/msPerYear;
+			var Yearsold=Math.floor(e_Yearsold);
+			var e_daysold=(Yearsold-e_Yearsold)*-365
+			var daysold=Math.floor(e_daysold);
+			var e_hrsold=(daysold-e_daysold)*-24;
+			var hrsold=numadd0(Math.floor(e_hrsold));
+			var e_minsold=(hrsold-e_hrsold)*-60;
+			var minsold=numadd0(Math.floor((hrsold-e_hrsold)*-60));
+			//alert(minsold);
+			var seconds=numadd0(Math.floor((minsold-e_minsold)*-60)).toString();
+			document.getElementById("showsectime").innerHTML = "我已经和这个美丽的世界相遇<em>"+Yearsold+"</em>年<em>"+daysold+"</em>天<em>"+hrsold+"</em>小时<em>"+minsold+"</em>分<em>"+seconds+"</em>秒啦~";
+			setTimeout(showsectime, 1000);
+		}
+		function numadd0(num) {
+			if(num < 10) {
+				num = '0'+num;
+			}
+			return num;
+		}
+		showsectime();
 		</script>
 	</p>
 
